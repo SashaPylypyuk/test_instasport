@@ -57,3 +57,17 @@ a {
   font-size: 20px;
 }
 
+.clubs__button--active {
+  border: 1px solid #264653;
+  background-color: #e9c46a;
+}
+
+.button {
+  outline: none;
+  cursor: pointer;
+  border: 1px solid #264653;
+  border-radius: 5px;
+  margin: 2px;
+  font-size: 15px;
+  padding: 5px;
+}

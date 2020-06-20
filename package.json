@@ -1,11 +1,12 @@
 {
   "name": "test_instasport",
-  "homepage": ".",
+  "homepage": "https://sashapylypyuk.github.io/test_instasport/",
   "version": "0.1.0",
   "private": true,
   "keywords": [],
   "license": "GPL-3.0",
   "dependencies": {
+    "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
