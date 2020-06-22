@@ -11,13 +11,13 @@ export function Clubs({ clubs }) {
             <p className="club__city">
               {club.city.title}
             </p>
-            <p className="club__title">
+            {/* <p className="club__title">
               {club.title_short}
-            </p>
+            </p> */}
             <img className="club__logo" src={club.logo} alt="Logo of club" />
-            <ul className="club__activities">
+            <ul className="club__list">
               {club.activity.map(activity => (
-                <li className="club__activity">
+                <li className="club__list--item">
                   {activity.title}
                 </li>
               ))}

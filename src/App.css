@@ -1,7 +1,7 @@
 * {
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
   color: #264653;
 }
 
@@ -9,36 +9,61 @@ a {
   text-decoration: none;
 }
 
+.header__text {
+  font-size: 50px;
+  margin: 30px 0;
+  text-align: center;
+}
+
 .clubs {
-  margin: 20px;
+  margin: 20px 20px 200px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .club {
+  min-width: 300px;
   width: 20%;
-  background-color: #e9c46a;
-  padding: 20px;
+  height: 350px;
+  border: 1px solid rgba(38, 70, 83, 0.6);
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px 20px 20px;
   margin-bottom: 20px;
   position: relative;
+  transition: transform linear 500ms;
+  transition: background-color linear 300ms;
 }
 
-.club:hover .club__activities {
-  display: block;
+.club:hover {
+  z-index: 1;
+  background-color: rgba(255, 230, 160, 1);
+}
+
+.club:hover .club__list {
+  display: flex;
+}
+
+.club:hover .club__logo {
+  display: none;
+}
+
+.club:hover .club__title {
+  display: none;
 }
 
 .club__city {
+  font-weight: 300;
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 10px;
+  right: 10px;
 }
 
 .club__logo {
-  margin: 0 auto;
-  display: block;
-  width: 100px;
-  height: 100px;
+  width: 250px;
+  height: 250px;
+  margin: 20px;
 }
 
 .club__title {
@@ -46,28 +71,49 @@ a {
   text-align: center;
 }
 
-.club__activities {
+.club__list {
   display: none;
-  margin-top: 10px;
+  flex-wrap: wrap;
   list-style: none;
+  margin: auto;
 }
 
-.club__activity {
+.club__list--item {
   margin: 5px;
   font-size: 20px;
+  text-align: center;
 }
 
 .clubs__button--active {
-  border: 1px solid #264653;
   background-color: #e9c46a;
 }
 
 .button {
+  font-size: 46px;
   outline: none;
   cursor: pointer;
-  border: 1px solid #264653;
+  border: none;
   border-radius: 5px;
-  margin: 2px;
+  margin: 4px;
   font-size: 15px;
-  padding: 5px;
+  padding: 10px;
+  transition: background-color linear 300ms;
+}
+
+.button:hover {
+  background-color: rgba(233, 196, 106, 0.6);
+}
+
+.header__section {
+  margin: 0 50px 30px;
+}
+
+.header__title {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.placeholder {
+  margin: 150px 0;
+  text-align: center;
 }

@@ -68,27 +68,20 @@ function App() {
 
     if (value === 'ALL' && filterCity === 'ALL') {
       setFilteredClubs(clubs);
-
     } else if (value === 'ALL' && filterCity !== 'ALL') {
-
       filteredArr.push(clubs.filter(club => club.city.title === filterCity));
       setFilteredClubs(filteredArr[0]);
-
     } else if (value !== 'ALL' && filterCity === 'ALL') {
-
       filteredArr.push(clubs.filter(obj => obj.activity
         .some(o => o.slug === value)));
 
       setFilteredClubs(filteredArr[0]);
-
     } else if (value !== 'ALL' && filterCity !== 'ALL') {
-
       filteredArr.push(clubs.filter(obj => obj.city.title === filterCity && obj.activity
         .some(o => o.slug === value)));
       setFilteredClubs(filteredArr[0]);
-
     } else {
-      console.log("Error in activities");
+      console.log('Error in activities');
     }
   };
 
@@ -99,30 +92,21 @@ function App() {
     setFilterCity(value);
 
     if (value === 'ALL' && filterAct === 'ALL') {
-
       setFilteredClubs(clubs);
-
     } else if (value === 'ALL' && filterAct !== 'ALL') {
-
       filteredArr.push(clubs.filter(obj => obj.activity
         .some(o => o.slug === filterAct)));
       setFilteredClubs(filteredArr[0]);
-
     } else if (value !== 'ALL' && filterAct === 'ALL') {
-
       filteredArr.push(clubs.filter(club => club.city.title === value));
       setFilteredClubs(filteredArr[0]);
-
     } else if (value !== 'ALL' && filterAct !== 'ALL') {
-
       filteredArr.push(clubs.filter(obj => obj.city.title === value && obj.activity
         .some(o => o.slug === filterAct)));
       setFilteredClubs(filteredArr[0]);
-
     } else {
-      console.log("Error in city");
+      console.log('Error in city');
     }
-
   };
 
   console.log(city);
@@ -130,42 +114,56 @@ function App() {
 
   return (
     <>
-      <h1>
+      <h1 className="header__text">
         Instasport
       </h1>
+
       {clubs.length ? (
         <>
-          {city.map(city => (
-            <button
-              value={city}
-              type="button"
-              key={city}
-              className={cn('clubs__button--city', 'button',
-                { 'clubs__button--active': city === filterCity })}
-              onClick={changeCity}
-            >
-              {city}
-            </button>
-          ))}
-          <hr />
-          {activity.map(activity => (
-            <button
-              value={activity}
-              onClick={changeActivities}
-              className={cn('clubs__button--activities', 'button',
-                { 'clubs__button--active': activity === filterAct })}
-              type="button"
-              key={activity}
-            >
-              {activity}
-            </button>
-          ))}
+          <div className="header__section">
+            <p className="header__title">
+              City
+            </p>
+            {city.map(city => (
+              <button
+                value={city}
+                type="button"
+                key={city}
+                className={cn('clubs__button--city', 'button',
+                  { 'clubs__button--active': city === filterCity })}
+                onClick={changeCity}
+              >
+                {city}
+              </button>
+            ))}
+          </div>
+          <div className="header__section">
+            <p className="header__title">
+              Activities
+            </p>
+            {activity.map(activity => (
+              <button
+                value={activity}
+                onClick={changeActivities}
+                className={cn('clubs__button--activities', 'button',
+                  { 'clubs__button--active': activity === filterAct })}
+                type="button"
+                key={activity}
+              >
+                {activity}
+              </button>
+            ))}
+          </div>
+
           <Clubs clubs={filteredClubs} />
         </>
       ) : (
-        <h1>
+
+        <>
+        <h1 className="placeholder">
           Loading ...
         </h1>
+        </>
       )}
     </>
   );
