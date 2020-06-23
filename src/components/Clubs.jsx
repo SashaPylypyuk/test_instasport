@@ -1,31 +1,24 @@
 import React from 'react';
 import '../App.css';
 import PropTypes from 'prop-types';
+import { Club } from './Club';
 
 export function Clubs({ clubs }) {
   return (
-    <div className="clubs">
-      {clubs.map(club => (
-        <div className="club">
-          <a href={club.link}>
-            <p className="club__city">
-              {club.city.title}
-            </p>
-            {/* <p className="club__title">
-              {club.title_short}
-            </p> */}
-            <img className="club__logo" src={club.logo} alt="Logo of club" />
-            <ul className="club__list">
-              {club.activity.map(activity => (
-                <li className="club__list--item">
-                  {activity.title}
-                </li>
-              ))}
-            </ul>
-          </a>
+    <>
+      {clubs.length ? (
+        <div className="clubs">
+          {clubs.map(club => (
+            <Club club={club} />
+          ))}
         </div>
-      ))}
-    </div>
+      ) : (
+        <h1 className="noClubs">
+          There are no clubs here
+        </h1>
+      )}
+
+    </>
   );
 }
 

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
-import cn from 'classnames';
 import { getClubs } from './api/clubs';
 import { Clubs } from './components/Clubs';
+import { Cities } from './components/Cities';
+import { Activities } from './components/Activities';
 
 function App() {
   const [clubs, setClubs] = useState([]);
@@ -117,53 +118,16 @@ function App() {
       <h1 className="header__text">
         Instasport
       </h1>
-
       {clubs.length ? (
         <>
-          <div className="header__section">
-            <p className="header__title">
-              City
-            </p>
-            {city.map(city => (
-              <button
-                value={city}
-                type="button"
-                key={city}
-                className={cn('clubs__button--city', 'button',
-                  { 'clubs__button--active': city === filterCity })}
-                onClick={changeCity}
-              >
-                {city}
-              </button>
-            ))}
-          </div>
-          <div className="header__section">
-            <p className="header__title">
-              Activities
-            </p>
-            {activity.map(activity => (
-              <button
-                value={activity}
-                onClick={changeActivities}
-                className={cn('clubs__button--activities', 'button',
-                  { 'clubs__button--active': activity === filterAct })}
-                type="button"
-                key={activity}
-              >
-                {activity}
-              </button>
-            ))}
-          </div>
-
+          <Cities city={city} filterCity={filterCity} changeCity={changeCity} />
+          <Activities activity={activity} filterAct={filterAct} changeActivities={changeActivities} />
           <Clubs clubs={filteredClubs} />
         </>
       ) : (
-
-        <>
         <h1 className="placeholder">
           Loading ...
         </h1>
-        </>
       )}
     </>
   );
